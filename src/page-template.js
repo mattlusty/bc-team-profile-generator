@@ -2,6 +2,7 @@
 const generateTeam = (team) => {
   // creates the manager html
   const generateManager = (manager) => {
+    console.log("Generating Manager");
     return `
 <div class="card employee-card">
   <div class="card-header">
@@ -21,6 +22,7 @@ const generateTeam = (team) => {
 
   // creates the html for engineers
   const generateEngineer = (engineer) => {
+    console.log("Generating Engineer");
     return `
 <div class="card employee-card">
   <div class="card-header">
@@ -40,6 +42,7 @@ const generateTeam = (team) => {
 
   // creates the html for interns
   const generateIntern = (intern) => {
+    console.log("Generating Intern");
     return `
 <div class="card employee-card">
   <div class="card-header">
@@ -58,18 +61,21 @@ const generateTeam = (team) => {
   };
 
   const html = [];
-
+  console.log(team);
+  console.log("Push first html");
   html.push(
     team
       .filter((employee) => employee.getRole() === "Manager")
       .map((manager) => generateManager(manager))
   );
+  console.log("Push next html");
   html.push(
     team
       .filter((employee) => employee.getRole() === "Engineer")
       .map((engineer) => generateEngineer(engineer))
       .join("")
   );
+  console.log("Push next html");
   html.push(
     team
       .filter((employee) => employee.getRole() === "Intern")
@@ -83,7 +89,7 @@ const generateTeam = (team) => {
 // exports function to generate entire page
 module.exports = (team) => {
   return `
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
